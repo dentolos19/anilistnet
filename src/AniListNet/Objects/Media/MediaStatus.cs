@@ -17,7 +17,8 @@ public enum MediaStatus
     /// <summary>
     /// To be released at a later date.
     /// </summary>
-    [EnumMember(Value = "NOT_YET_RELEASED")] NotYetReleased,
+    [EnumMember(Value = "NOT_YET_RELEASED")]
+    NotYetReleased,
 
     /// <summary>
     /// Ended before the work could be finished.

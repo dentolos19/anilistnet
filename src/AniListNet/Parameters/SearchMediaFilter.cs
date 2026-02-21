@@ -43,6 +43,7 @@ public class SearchMediaFilter
             if (excludedItems is { Length: > 0 })
                 parameters.Add(new GqlParameter("format_not_in", excludedItems));
         }
+
         if (Status is { Count: > 0 })
         {
             var (includedItems, excludedItems) = Status.SeparateByBooleans();
@@ -51,6 +52,7 @@ public class SearchMediaFilter
             if (excludedItems is { Length: > 0 })
                 parameters.Add(new GqlParameter("status_not_in", excludedItems));
         }
+
         if (Genres is { Count: > 0 })
         {
             var (includedItems, excludedItems) = Genres.SeparateByBooleans();
@@ -59,6 +61,7 @@ public class SearchMediaFilter
             if (excludedItems is { Length: > 0 })
                 parameters.Add(new GqlParameter("genre_not_in", excludedItems));
         }
+
         if (Tags is { Count: > 0 })
         {
             var (includedItems, excludedItems) = Tags.SeparateByBooleans();
@@ -67,6 +70,7 @@ public class SearchMediaFilter
             if (excludedItems is { Length: > 0 })
                 parameters.Add(new GqlParameter("tag_not_in", excludedItems));
         }
+
         parameters.Add(
             new GqlParameter(
                 "sort",

@@ -12,7 +12,8 @@ internal class GqlSelection
         Name = name;
     }
 
-    public GqlSelection(string name, IEnumerable<GqlSelection>? selections = null, IEnumerable<GqlParameter>? parameters = null)
+    public GqlSelection(string name, IEnumerable<GqlSelection>? selections = null,
+        IEnumerable<GqlParameter>? parameters = null)
     {
         Name = name;
         Selections = selections?.ToList();

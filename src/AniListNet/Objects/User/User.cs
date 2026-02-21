@@ -7,43 +7,51 @@ public class User
     /// <summary>
     /// The ID of the user.
     /// </summary>
-    [GqlSelection("id")] public int Id { get; private set; }
+    [GqlSelection("id")]
+    public int Id { get; private set; }
 
     /// <summary>
     /// The name of the user.
     /// </summary>
-    [GqlSelection("name")] public string Name { get; private set; }
+    [GqlSelection("name")]
+    public string Name { get; private set; }
 
     /// <summary>
     /// The bio written by user.
     /// </summary>
     /// <remarks>In markdown format.</remarks>
-    [GqlSelection("about")] public string? About { get; private set; }
+    [GqlSelection("about")]
+    public string? About { get; private set; }
 
     /// <summary>
     /// The user's avatar images.
     /// </summary>
-    [GqlSelection("avatar")] public Image Avatar { get; private set; }
+    [GqlSelection("avatar")]
+    public Image Avatar { get; private set; }
 
     /// <summary>
     /// The user's banner images.
     /// </summary>
-    [GqlSelection("bannerImage")] public Uri? BannerImageUrl { get; private set; }
+    [GqlSelection("bannerImage")]
+    public Uri? BannerImageUrl { get; private set; }
 
     /// <summary>
     /// The user's general options.
     /// </summary>
-    [GqlSelection("options")] public UserOptions Options { get; private set; }
+    [GqlSelection("options")]
+    public UserOptions Options { get; private set; }
 
     /// <summary>
     /// The user's media list options.
     /// </summary>
-    [GqlSelection("mediaListOptions")] public UserListOptions ListOptions { get; private set; }
+    [GqlSelection("mediaListOptions")]
+    public UserListOptions ListOptions { get; private set; }
 
     /// <summary>
     /// The URL for the user page on the AniList website.
     /// </summary>
-    [GqlSelection("siteUrl")] public Uri Url { get; private set; }
+    [GqlSelection("siteUrl")]
+    public Uri Url { get; private set; }
 
     /* below are properties only for the authenticated user */
 
@@ -51,17 +59,20 @@ public class User
     /// If the authenticated user if following this user.
     /// </summary>
     /// <remarks>Requires user authentication with AniList!</remarks>
-    [GqlSelection("isFollowing")] public bool IsFollowing { get; private set; }
+    [GqlSelection("isFollowing")]
+    public bool IsFollowing { get; private set; }
 
     /// <summary>
     /// If this user if following the authenticated user.
     /// </summary>
     /// <remarks>Requires user authentication with AniList!</remarks>
-    [GqlSelection("isFollower")] public bool IsFollower { get; private set; }
+    [GqlSelection("isFollower")]
+    public bool IsFollower { get; private set; }
 
     /// <summary>
     /// If the user is blocked by the authenticated user.
     /// </summary>
     /// <remarks>Requires user authentication with AniList!</remarks>
-    [GqlSelection("isBlocked")] public bool IsBlocked { get; private set; }
+    [GqlSelection("isBlocked")]
+    public bool IsBlocked { get; private set; }
 }

@@ -12,7 +12,8 @@ public enum UserScoreFormat
     /// <summary>
     /// A float from 0 to 10 with 1 decimal place.
     /// </summary>
-    [EnumMember(Value = "POINT_10_DECIMAL")] Point10Decimal,
+    [EnumMember(Value = "POINT_10_DECIMAL")]
+    Point10Decimal,
 
     /// <summary>
     /// An integer from 0 to 10.

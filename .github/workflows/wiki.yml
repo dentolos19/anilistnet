@@ -1,8 +1,8 @@
-name: Publish GitHub Wiki
-run-name: "${{ github.workflow }} #${{ github.run_number }}"
+name: Wiki Documentation
 on:
   push:
-    branches: main
+    branches:
+      - main
     paths:
       - docs/wiki/**
   workflow_dispatch:
@@ -12,11 +12,15 @@ concurrency:
 permissions:
   contents: write
 jobs:
-  main:
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: Andrew-Chen-Wang/github-wiki-action@v4
+      - name: Checkout Source
+        uses: actions/checkout@v4
+
+      - name: Deploy to GitHub Wiki
+        uses: Andrew-Chen-Wang/github-wiki-action@v4
         with:
           strategy: init
           path: docs/wiki

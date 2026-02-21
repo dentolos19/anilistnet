@@ -63,7 +63,8 @@ public partial class AniClient
     public async Task<MediaReview> SaveMediaReviewAsync(int mediaId, MediaReviewMutation mutation)
     {
         var parameters = new List<GqlParameter> { new("mediaId", mediaId) }.Concat(mutation.ToParameters());
-        var selections = new GqlSelection("SaveReview", GqlParser.ParseToSelections<MediaReview>(), parameters.ToArray());
+        var selections =
+            new GqlSelection("SaveReview", GqlParser.ParseToSelections<MediaReview>(), parameters.ToArray());
         var response = await PostRequestAsync(selections, true);
         return GqlParser.ParseFromJson<MediaReview>(response["SaveReview"]);
     }
@@ -90,7 +91,8 @@ public partial class AniClient
     public async Task<MediaReview> RateMediaReviewAsync(int reviewId, MediaReviewRating rating)
     {
         var parameters = new List<GqlParameter> { new("reviewId", reviewId), new("rating", rating) };
-        var selections = new GqlSelection("RateReview", GqlParser.ParseToSelections<MediaReview>(), parameters.ToArray());
+        var selections =
+            new GqlSelection("RateReview", GqlParser.ParseToSelections<MediaReview>(), parameters.ToArray());
         var response = await PostRequestAsync(selections, true);
         return GqlParser.ParseFromJson<MediaReview>(response["RateReview"]);
     }
@@ -98,10 +100,12 @@ public partial class AniClient
     /// <summary>
     /// Save a recommendation on a media.
     /// </summary>
-    public async Task<MediaRecommendation> SaveMediaRecommendationAsync(int mediaId, MediaRecommendationMutation mutation)
+    public async Task<MediaRecommendation> SaveMediaRecommendationAsync(int mediaId,
+        MediaRecommendationMutation mutation)
     {
         var parameters = new List<GqlParameter> { new("mediaId", mediaId) }.Concat(mutation.ToParameters());
-        var selections = new GqlSelection("SaveRecommendation", GqlParser.ParseToSelections<MediaRecommendation>(), parameters.ToArray());
+        var selections = new GqlSelection("SaveRecommendation", GqlParser.ParseToSelections<MediaRecommendation>(),
+            parameters.ToArray());
         var response = await PostRequestAsync(selections, true);
         return GqlParser.ParseFromJson<MediaRecommendation>(response["SaveRecommendation"]);
     }

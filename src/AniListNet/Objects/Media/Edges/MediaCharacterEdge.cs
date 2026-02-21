@@ -7,5 +7,6 @@ public class MediaCharacterEdge : MediaEdge
     /// <summary>
     /// The character's role in the media.
     /// </summary>
-    [GqlSelection("characterRole")] public string Role { get; private set; }
+    [GqlSelection("characterRole")]
+    public string Role { get; private set; }
 }

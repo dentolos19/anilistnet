@@ -9,7 +9,8 @@ public class MediaTrend
     /// <summary>
     /// The ID of the tag.
     /// </summary>
-    [GqlSelection("mediaId")] public int MediaId { get; private set; }
+    [GqlSelection("mediaId")]
+    public int MediaId { get; private set; }
 
     /// <summary>
     /// The day the data was recorded.
@@ -19,35 +20,42 @@ public class MediaTrend
     /// <summary>
     /// The amount of media activity on the day.
     /// </summary>
-    [GqlSelection("trending")] public int Trending { get; private set; }
+    [GqlSelection("trending")]
+    public int Trending { get; private set; }
 
     /// <summary>
     /// A weighted average score of all the user's scores of the media.
     /// </summary>
-    [GqlSelection("averageScore")] public int AverageScore { get; private set; }
+    [GqlSelection("averageScore")]
+    public int AverageScore { get; private set; }
 
     /// <summary>
     /// The number of users with the media on their list.
     /// </summary>
-    [GqlSelection("popularity")] public int Popularity { get; private set; }
+    [GqlSelection("popularity")]
+    public int Popularity { get; private set; }
 
     /// <summary>
     /// The number of users with watching/reading the media.
     /// </summary>
-    [GqlSelection("inProgress")] public int InProgressCount { get; private set; }
+    [GqlSelection("inProgress")]
+    public int InProgressCount { get; private set; }
 
     /// <summary>
     /// If the media was being released at this time.
     /// </summary>
-    [GqlSelection("releasing")] public bool IsReleasing { get; private set; }
+    [GqlSelection("releasing")]
+    public bool IsReleasing { get; private set; }
 
     /// <summary>
     /// The episode number of the anime released on this day.
     /// </summary>
-    [GqlSelection("episode")] public int? Episode { get; private set; }
+    [GqlSelection("episode")]
+    public int? Episode { get; private set; }
 
     /// <summary>
     /// The related media.
     /// </summary>
-    [GqlSelection("media")] public Media Media { get; private set; }
+    [GqlSelection("media")]
+    public Media Media { get; private set; }
 }

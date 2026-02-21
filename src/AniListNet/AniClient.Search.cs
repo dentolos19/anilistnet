@@ -6,7 +6,8 @@ namespace AniListNet;
 
 public partial class AniClient
 {
-    public async Task<AniPagination<Media>> SearchMediaAsync(SearchMediaFilter filter, AniPaginationOptions? options = null)
+    public async Task<AniPagination<Media>> SearchMediaAsync(SearchMediaFilter filter,
+        AniPaginationOptions? options = null)
     {
         options ??= new AniPaginationOptions();
         var selections = new GqlSelection("Page")
@@ -25,7 +26,8 @@ public partial class AniClient
         );
     }
 
-    public async Task<AniPagination<Character>> SearchCharacterAsync(SearchCharacterFilter filter, AniPaginationOptions? options = null)
+    public async Task<AniPagination<Character>> SearchCharacterAsync(SearchCharacterFilter filter,
+        AniPaginationOptions? options = null)
     {
         options ??= new AniPaginationOptions();
         var selections = new GqlSelection("Page")
@@ -44,7 +46,8 @@ public partial class AniClient
         );
     }
 
-    public async Task<AniPagination<Staff>> SearchStaffAsync(SearchStaffFilter filter, AniPaginationOptions? options = null)
+    public async Task<AniPagination<Staff>> SearchStaffAsync(SearchStaffFilter filter,
+        AniPaginationOptions? options = null)
     {
         options ??= new AniPaginationOptions();
         var selections = new GqlSelection("Page")
@@ -63,7 +66,8 @@ public partial class AniClient
         );
     }
 
-    public async Task<AniPagination<Studio>> SearchStudioAsync(SearchStudioFilter filter, AniPaginationOptions? options = null)
+    public async Task<AniPagination<Studio>> SearchStudioAsync(SearchStudioFilter filter,
+        AniPaginationOptions? options = null)
     {
         options ??= new AniPaginationOptions();
         var selections = new GqlSelection("Page")
@@ -82,7 +86,8 @@ public partial class AniClient
         );
     }
 
-    public async Task<AniPagination<User>> SearchUserAsync(SearchUserFilter filter, AniPaginationOptions? options = null)
+    public async Task<AniPagination<User>> SearchUserAsync(SearchUserFilter filter,
+        AniPaginationOptions? options = null)
     {
         options ??= new AniPaginationOptions();
         var selections = new GqlSelection("Page")

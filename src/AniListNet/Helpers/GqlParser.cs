@@ -36,7 +36,8 @@ internal static class GqlParser
                 MemberTypes.Field => ((FieldInfo)variable).FieldType,
                 MemberTypes.Property => ((PropertyInfo)variable).PropertyType
             });
-            var parameters = variable.GetCustomAttributes<GqlParameterAttribute>().Select(attribute => new GqlParameter(attribute));
+            var parameters = variable.GetCustomAttributes<GqlParameterAttribute>()
+                .Select(attribute => new GqlParameter(attribute));
             var selection = new GqlSelection(selectionAttribute)
             {
                 Parameters = parameters.ToList(),
@@ -46,6 +47,7 @@ internal static class GqlParser
                 selection.Alias = selectionAttribute.Alias;
             selections.Add(selection);
         }
+
         return selections;
     }
 
@@ -89,6 +91,7 @@ internal static class GqlParser
             if (selection.Selections is { Count: > 0 })
                 stringBuilder.Append($"{{{BuildSelections(selection.Selections)}}}");
         }
+
         return stringBuilder.ToString();
     }
 
@@ -96,7 +99,8 @@ internal static class GqlParser
     {
         var stringBuilder = new StringBuilder();
         foreach (var parameter in parameters)
-            stringBuilder.Append((stringBuilder.Length > 1 ? "," : string.Empty) + parameter.Name + ":" + ParseObjectString(parameter.Value));
+            stringBuilder.Append((stringBuilder.Length > 1 ? "," : string.Empty) + parameter.Name + ":" +
+                                 ParseObjectString(parameter.Value));
         return stringBuilder.ToString();
     }
 
@@ -124,6 +128,7 @@ internal static class GqlParser
                     stringBuilder.Append(":");
                     stringBuilder.Append(ParseObjectString(parameter.Value));
                 }
+
                 stringBuilder.Append('}');
                 return stringBuilder.ToString();
             }))(),
@@ -136,6 +141,7 @@ internal static class GqlParser
                     stringBuilder.Append(stringBuilder.Length > 1 ? "," : string.Empty);
                     stringBuilder.Append(ParseObjectString(item));
                 }
+
                 stringBuilder.Append(']');
                 return stringBuilder.ToString();
             }))(),

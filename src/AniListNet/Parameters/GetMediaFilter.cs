@@ -17,7 +17,9 @@ public class GetMediaFilter
             parameters.Add(new GqlParameter("type", Type.Value));
         if (OnList.HasValue)
             parameters.Add(new GqlParameter("onList", OnList.Value));
-        parameters.Add(new GqlParameter("sort", $"${HelperUtilities.GetEnumMemberValue(Sort)}" + (SortDescending && Sort != MediaSort.Relevance ? "_DESC" : string.Empty)));
+        parameters.Add(new GqlParameter("sort",
+            $"${HelperUtilities.GetEnumMemberValue(Sort)}" +
+            (SortDescending && Sort != MediaSort.Relevance ? "_DESC" : string.Empty)));
         return parameters;
     }
 }

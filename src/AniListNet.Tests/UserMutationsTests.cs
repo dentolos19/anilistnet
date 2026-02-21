@@ -13,7 +13,8 @@ public class UserMutationsTests
     private string GenerateRandomString(int length = 16, string additionalCharacters = "")
     {
         var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + additionalCharacters;
-        return new string(Enumerable.Repeat(characters, length).Select(@string => @string[_random.Next(@string.Length)]).ToArray());
+        return new string(Enumerable.Repeat(characters, length).Select(@string => @string[_random.Next(@string.Length)])
+            .ToArray());
     }
 
     private TEnum GetRandomEnum<TEnum>()

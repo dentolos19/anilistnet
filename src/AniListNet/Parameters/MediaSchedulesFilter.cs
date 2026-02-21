@@ -18,11 +18,14 @@ public class MediaSchedulesFilter
         if (MediaId.HasValue)
             parameters.Add(new GqlParameter("mediaId", MediaId.Value));
         if (StartedAfterDate.HasValue)
-            parameters.Add(new GqlParameter("airingAt_greater", new DateTimeOffset(StartedAfterDate.Value).ToUnixTimeSeconds()));
+            parameters.Add(new GqlParameter("airingAt_greater",
+                new DateTimeOffset(StartedAfterDate.Value).ToUnixTimeSeconds()));
         if (EndedBeforeDate.HasValue)
-            parameters.Add(new GqlParameter("airingAt_lesser", new DateTimeOffset(EndedBeforeDate.Value).ToUnixTimeSeconds()));
+            parameters.Add(new GqlParameter("airingAt_lesser",
+                new DateTimeOffset(EndedBeforeDate.Value).ToUnixTimeSeconds()));
         parameters.Add(new GqlParameter("notYetAired", NotYetAired));
-        parameters.Add(new GqlParameter("sort", $"${HelperUtilities.GetEnumMemberValue(Sort)}" + (SortDescending ? "_DESC" : string.Empty)));
+        parameters.Add(new GqlParameter("sort",
+            $"${HelperUtilities.GetEnumMemberValue(Sort)}" + (SortDescending ? "_DESC" : string.Empty)));
         return parameters;
     }
 }

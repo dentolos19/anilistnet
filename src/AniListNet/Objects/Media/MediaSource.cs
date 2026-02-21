@@ -80,7 +80,8 @@ public enum MediaSource
     /// Multimedia project.
     /// </summary>
     /// <remarks>Version 3 only</remarks>
-    [EnumMember(Value = "MULTIMEDIA_PROJECT")] MultimediaProject, // v3
+    [EnumMember(Value = "MULTIMEDIA_PROJECT")]
+    MultimediaProject, // v3
 
     /// <summary>
     /// Picture book.

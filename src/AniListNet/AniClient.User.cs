@@ -6,7 +6,8 @@ namespace AniListNet;
 
 public partial class AniClient
 {
-    public async Task<AniPagination<User>> GetUserFollowersAsync(int userId, AniPaginationOptions? paginationOptions = null)
+    public async Task<AniPagination<User>> GetUserFollowersAsync(int userId,
+        AniPaginationOptions? paginationOptions = null)
     {
         paginationOptions ??= new AniPaginationOptions();
         var selections = new GqlSelection("Page", new GqlSelection[]
@@ -24,7 +25,8 @@ public partial class AniClient
         );
     }
 
-    public async Task<AniPagination<User>> GetUserFollowingsAsync(int userId, AniPaginationOptions? paginationOptions = null)
+    public async Task<AniPagination<User>> GetUserFollowingsAsync(int userId,
+        AniPaginationOptions? paginationOptions = null)
     {
         paginationOptions ??= new AniPaginationOptions();
         var selections = new GqlSelection("Page", new GqlSelection[]
@@ -42,7 +44,8 @@ public partial class AniClient
         );
     }
 
-    public async Task<AniPagination<MediaEntry>> GetUserEntriesAsync(int userId, MediaEntryFilter? filter = null, AniPaginationOptions? paginationOptions = null)
+    public async Task<AniPagination<MediaEntry>> GetUserEntriesAsync(int userId, MediaEntryFilter? filter = null,
+        AniPaginationOptions? paginationOptions = null)
     {
         filter ??= new MediaEntryFilter();
         paginationOptions ??= new AniPaginationOptions();
@@ -61,32 +64,36 @@ public partial class AniClient
         );
     }
 
-    public async Task<MediaEntryCollection> GetUserEntryCollectionAsync(int userId, MediaType type, AniPaginationOptions? paginationOptions = null)
+    public async Task<MediaEntryCollection> GetUserEntryCollectionAsync(int userId, MediaType type,
+        AniPaginationOptions? paginationOptions = null)
     {
         paginationOptions ??= new AniPaginationOptions();
-        var selections = new GqlSelection("MediaListCollection", GqlParser.ParseToSelections<MediaEntryCollection>(), new GqlParameter[]
-        {
-            new("userId", userId),
-            new("type", type),
-            new("chunk", paginationOptions.PageIndex),
-            new("perChunk", paginationOptions.PageSize)
-        });
+        var selections = new GqlSelection("MediaListCollection", GqlParser.ParseToSelections<MediaEntryCollection>(),
+            new GqlParameter[]
+            {
+                new("userId", userId),
+                new("type", type),
+                new("chunk", paginationOptions.PageIndex),
+                new("perChunk", paginationOptions.PageSize)
+            });
         var response = await PostRequestAsync(selections);
         return GqlParser.ParseFromJson<MediaEntryCollection>(response["MediaListCollection"]);
     }
 
     public async Task<MediaListCollection> GetUserListCollectionAsync(int userId, MediaType type)
     {
-        var selections = new GqlSelection("MediaListCollection", GqlParser.ParseToSelections<MediaListCollection>(), new GqlParameter[]
-        {
-            new("userId", userId),
-            new("type", type)
-        });
+        var selections = new GqlSelection("MediaListCollection", GqlParser.ParseToSelections<MediaListCollection>(),
+            new GqlParameter[]
+            {
+                new("userId", userId),
+                new("type", type)
+            });
         var response = await PostRequestAsync(selections);
         return GqlParser.ParseFromJson<MediaListCollection>(response["MediaListCollection"]);
     }
 
-    public async Task<AniPagination<MediaReview>> GetUserMediaReviewsAsync(int userId, MediaReviewFilter? filter = null, AniPaginationOptions? pagination = null)
+    public async Task<AniPagination<MediaReview>> GetUserMediaReviewsAsync(int userId, MediaReviewFilter? filter = null,
+        AniPaginationOptions? pagination = null)
     {
         filter ??= new MediaReviewFilter();
         pagination ??= new AniPaginationOptions();
@@ -96,10 +103,11 @@ public partial class AniClient
             Selections = new GqlSelection[]
             {
                 new("pageInfo", GqlParser.ParseToSelections<PageInfo>()),
-                new("reviews", GqlParser.ParseToSelections<MediaReview>(), filter.ToParameters().Concat(new GqlParameter[]
-                {
-                    new("userId", userId)
-                }))
+                new("reviews", GqlParser.ParseToSelections<MediaReview>(), filter.ToParameters().Concat(
+                    new GqlParameter[]
+                    {
+                        new("userId", userId)
+                    }))
             }
         };
         var response = await PostRequestAsync(selections);
@@ -109,31 +117,36 @@ public partial class AniClient
         );
     }
 
-    public Task<AniPagination<Media>> GetUserAnimeFavoritesAsync(int userId, AniPaginationOptions? paginationOptions = null)
+    public Task<AniPagination<Media>> GetUserAnimeFavoritesAsync(int userId,
+        AniPaginationOptions? paginationOptions = null)
     {
         paginationOptions ??= new AniPaginationOptions();
         return GetUserFavoritesAsync<Media>(userId, "anime", paginationOptions);
     }
 
-    public Task<AniPagination<Media>> GetUserMangaFavoritesAsync(int userId, AniPaginationOptions? paginationOptions = null)
+    public Task<AniPagination<Media>> GetUserMangaFavoritesAsync(int userId,
+        AniPaginationOptions? paginationOptions = null)
     {
         paginationOptions ??= new AniPaginationOptions();
         return GetUserFavoritesAsync<Media>(userId, "manga", paginationOptions);
     }
 
-    public Task<AniPagination<Character>> GetUserCharacterFavoritesAsync(int userId, AniPaginationOptions? paginationOptions = null)
+    public Task<AniPagination<Character>> GetUserCharacterFavoritesAsync(int userId,
+        AniPaginationOptions? paginationOptions = null)
     {
         paginationOptions ??= new AniPaginationOptions();
         return GetUserFavoritesAsync<Character>(userId, "characters", paginationOptions);
     }
 
-    public Task<AniPagination<Staff>> GetUserStaffFavoritesAsync(int userId, AniPaginationOptions? paginationOptions = null)
+    public Task<AniPagination<Staff>> GetUserStaffFavoritesAsync(int userId,
+        AniPaginationOptions? paginationOptions = null)
     {
         paginationOptions ??= new AniPaginationOptions();
         return GetUserFavoritesAsync<Staff>(userId, "staff", paginationOptions);
     }
 
-    public Task<AniPagination<Studio>> GetUserStudioFavoritesAsync(int userId, AniPaginationOptions? paginationOptions = null)
+    public Task<AniPagination<Studio>> GetUserStudioFavoritesAsync(int userId,
+        AniPaginationOptions? paginationOptions = null)
     {
         paginationOptions ??= new AniPaginationOptions();
         return GetUserFavoritesAsync<Studio>(userId, "studios", paginationOptions);
@@ -141,7 +154,8 @@ public partial class AniClient
 
     /* below are methods made for private use */
 
-    private async Task<AniPagination<TObject>> GetUserFavoritesAsync<TObject>(int userId, string type, AniPaginationOptions paginationOptions)
+    private async Task<AniPagination<TObject>> GetUserFavoritesAsync<TObject>(int userId, string type,
+        AniPaginationOptions paginationOptions)
     {
         var selections = new GqlSelection("User", new GqlSelection[]
         {

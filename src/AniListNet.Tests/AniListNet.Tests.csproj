@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <LangVersion>latest</LangVersion>
@@ -7,7 +6,6 @@
         <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
     </PropertyGroup>
-
     <ItemGroup>
         <PackageReference Include="DotNetEnv" Version="3.0.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
@@ -23,15 +21,12 @@
         </PackageReference>
         <PackageReference Include="ObjectDumper.NET" Version="4.1.15" />
     </ItemGroup>
-
     <ItemGroup>
         <ProjectReference Include="..\AniListNet\AniListNet.csproj" />
     </ItemGroup>
-
     <ItemGroup>
         <None Update=".env">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
-
 </Project>
