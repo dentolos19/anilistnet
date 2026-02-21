@@ -6,7 +6,8 @@
 [![NuGet Version](https://img.shields.io/nuget/v/AniListNet?logo=nuget)](https://nuget.org/packages/AniListNet)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/AniListNet)](https://nuget.org/packages/AniListNet)
 
-A simple .NET API wrapper for [AniList](https://anilist.co)!
+> [!warning]
+> This project is no longer being actively maintained. Occasional commits may only introduce repository structural changes. Use this library at your own risk.
 
 This project is designed to bring you a simpler way to access and interact with the AniList API. For more information
 about the API itself, visit the [AniList Docs](https://docs.anilist.co).
@@ -28,11 +29,14 @@ Go check out [the wiki](https://github.com/dentolos19/AniListNet/wiki) to learn 
 
 ### Roadmap
 
-- [ ] Improve tests (help wanted)
-- [ ] Add query functions for notification data
-- [ ] Add query/mutations functions for user activities
-- [ ] Use same API naming conventions for object properties (target v2)
-- [ ] Use generics instead of arrays (target v2)
+> [!note]
+> This project is no longer being actively maintained.
+
+- [ ] ~~Improve tests (help wanted)~~
+- [ ] ~~Add query functions for notification data~~
+- [ ] ~~Add query/mutations functions for user activities~~
+- [ ] ~~Use same API naming conventions for object properties (target v2)~~
+- [ ] ~~Use generics instead of arrays (target v2)~~
 
 ## 🧑‍💻 Contributing
 
@@ -44,8 +48,8 @@ Contributions are what make the open source community such an amazing place to l
 
 ### Installation
 
-1. Clone the repo: `git clone https://github.com/dentolos19/AniListNet.git`
-2. Get your API key, learn how by [clicking here](https://github.com/dentolos19/AniListNet/wiki/Tutorials#authenticating-with-anilist).
+1. Clone the repo: `git clone https://github.com/dentolos19/anilistnet.git`
+2. Get your API key, learn how by [clicking here](https://github.com/dentolos19/anilistnet/wiki/Tutorials#authenticating-with-anilist).
 3. Use the template `.env.template` and create a file named `.env` inside the project `AniListNet.Tests` and enter your key.
 4. Restore dependencies: `dotnet restore` (optional)
 5. Test the library: `dotnet test` or use the built-in tests runner in your IDE (recommended)
